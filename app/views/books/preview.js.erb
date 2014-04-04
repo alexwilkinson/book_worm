@@ -9,3 +9,13 @@ function alertNotFound() {
   $.getScript("<%= preview_path %>", function(e){
   });
 }
+
+function toNextPage() {
+  viewer.nextPage();
+  console.log(viewer.getPageId())
+  console.log($(".selection-layer"))
+}
+
+function printPage() {
+  $(".selection-layer").appendTo($(this.parent))
+}

@@ -1,24 +1,28 @@
 <script type="text/javascript">
   google.load("books", "0");
     $(document).ready(function initialize(){
+        $("button#turn_page").on("click", function(e) {
+          $("#book").turn({
+            "display": "single"
+          });
+        });
 
-        <!-- //function to set cursor to input -->
-        // $("input#keyword").focus();
-        // $("input#keyword").get(0).setSelectionRange;
-      <!-- //end function to set cursor to input -->
-      <!-- //function to allow "enter" to send form -->
-        // $('#keyword').keyup(function (e) {
-        //   if (e.keyCode == 13) {
-        //     $('input#search').click();
-        //   }
+        $("#book").bind("turning", function(event) {
+          console.log("what's going on?");
+          $(this).turn("addPage", $("#viewerCanvas"));
+          viewer.nextPage();
+        });
+
+        // $("#book").bind("turning", function(e) {
+        //   console.log("happening?")
+        //   viewer.nextPage();
         // });
-      <!-- //end function to allow "enter" to send form -->
 
 
         $("button#search").on("click", function(e){
-        $.getScript("<%= preview_path %>", function(e){
-            $("#myModal").modal('toggle', function(){
-            });
+          $.getScript("<%= preview_path %>", function(e){
+              $("#myModal").modal('toggle', function(){
+              });
         });
         $("button#next").on("click", function(e){
             $.getScript("<%= preview_path %>", function(e){

@@ -16,3 +16,4 @@
 //= require_tree .
 //= require jsapi
 //= require previewlib
+//= require turn.min
